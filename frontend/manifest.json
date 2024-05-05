@@ -1,0 +1,24 @@
+{
+    "manifest_version": 3,
+    "name": "YTD",
+    "description": "Youtube Video Descriptor",
+    "version": "1.0",
+    "permissions": ["activeTab","declarativeContent", "tabs", "storage", "scripting", "webNavigation"],
+    "action": {
+      "default_popup": "index.html",
+      "default_icon": "assets/logo128.jpg"
+    },
+    "icons": {
+        "16": "assets/logo16.jpg",
+        "48": "assets/logo48.jpg",
+        "128": "assets/logo128.jpg"
+    },
+    "content_scripts": [
+        {
+            "js": ["scripts/content.js"],
+            "css": ["scripts/content.css"],
+            "matches": ["https://www.youtube.com/watch?v=*"],
+            "run_at": "document_end"
+        }
+    ]
+}
