@@ -3,9 +3,10 @@
     "name": "YTD",
     "description": "Youtube Video Descriptor",
     "version": "1.0",
-    "permissions": ["activeTab","declarativeContent", "tabs", "storage", "scripting", "webNavigation"],
+    "permissions": ["activeTab","declarativeContent", "tabs", "storage"],  
+    "host_permissions": ["http://*/*", "https://*/*"],
     "action": {
-      "default_popup": "index.html",
+      "default_popup": "popup.html",
       "default_icon": "assets/logo128.jpg"
     },
     "icons": {
@@ -15,10 +16,12 @@
     },
     "content_scripts": [
         {
-            "js": ["scripts/content.js"],
-            "css": ["scripts/content.css"],
             "matches": ["https://www.youtube.com/watch?v=*"],
-            "run_at": "document_end"
+            "css": ["content.css"],
+            "js": ["content-script.js"]
         }
-    ]
+    ],
+    "background": {
+        "service_worker": "background.js"
+    }
 }
