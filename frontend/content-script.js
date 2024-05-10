@@ -40,7 +40,7 @@ chrome.runtime.onMessage.addListener(result =>{
         console.log({player, txt});
     }    
     
-    if(result.action == "Initalize"){
+    if(result.action == "Init"){
         let txt = document.getElementById('Summary-Box');
         if(txt != null)
             txt.remove();
